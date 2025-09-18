@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FixIt | User Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <link rel="stylesheet" href="dashboard.css">
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {
+      font-family:'Roboto',sans-serif;
+      background: radial-gradient(circle at top left,#1e3a8a,transparent 60%),
+                  radial-gradient(circle at bottom right,#1d4ed8,transparent 60%), #f8fafc;
+      height:100vh;display:flex;justify-content:center;align-items:center;
+    }
+    .dashboard-box {
+      background:#fff;
+      padding:35px;
+      border-radius:15px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+      max-width:500px;width:100%;
+      text-align:center;
+    }
+    h1 {
+      font-size:24px;font-weight:600;color:#1d4ed8;margin-bottom:8px;
+      display:flex;align-items:center;justify-content:center;gap:8px;
+    }
+    h1 i {color:#1e3a8a;}
+    h3 {font-size:16px;color:#555;margin-bottom:25px;}
+    .form-group {margin-bottom:20px;text-align:left;}
+    .form-group label {
+      font-size:14px;font-weight:500;color:#333;
+      display:flex;align-items:center;gap:6px;margin-bottom:6px;
+    }
+    .form-group input,.form-group textarea,.form-group select {
+      width:100%;padding:12px;border:1.5px solid #ddd;border-radius:10px;font-size:15px;
+    }
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus {
+      border-color:#1d4ed8;outline:none;box-shadow:0 0 0 3px rgba(29,78,216,0.2);
+    }
+    textarea{resize:vertical;min-height:60px;}
+    .btn-primary {
+      width:100%;padding:12px;background:#1d4ed8;color:#fff;border:none;
+      border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;margin-top:10px;
+    }
+    .btn-primary:hover{background:#1e40af;}
+    .btn-logout {
+      margin-top:15px;width:100%;padding:12px;background:#ef4444;color:#fff;
+      border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;
+    }
+    .btn-logout:hover{background:#dc2626;}
+    /* Map modal */
+    .map-modal{
+      display:none;position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);
+      background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.2);
+      padding:15px;z-index:1000;flex-direction:column;align-items:center;
+    }
+    .map-area{width:80vw;max-width:420px;height:300px;border-radius:10px;margin-bottom:10px;}
+    .map-modal button{margin:4px 0;padding:10px 14px;border:none;border-radius:8px;font-weight:600;cursor:pointer;}
+    #confirmLocationBtn{background:#1d4ed8;color:#fff;}
+    #closeMapBtn{background:#f3f4f6;}
+  </style>
+</head>
+<body>
+  <div class="dashboard-box">
+    <h1><i class="fa-solid fa-user"></i> FixIt</h1>
+    <h3 id="welcomeText">Welcome 👋</h3>
+    <form id="reportForm">
+      <div class="form-group">
+        <label><i class="fa-solid fa-camera"></i> Upload Photo</label>
+        <input type="file" id="photo" accept="image/*" required>
+      </div>
+      <div class="form-group">
+        <label><i class="fa-solid fa-align-left"></i> Description</label>
+        <textarea id="description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label><i class="fa-solid fa-list"></i> Category</label>
+        <select id="category" required>
+          <option value="">Select</option>
+          <option value="road">🛣 Road</option>
+          <option value="garbage">🗑 Garbage</option>
+          <option value="light">💡 Lights</option>
+          <option value="other">⚙ Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label><i class="fa-solid fa-map-marker-alt"></i> Location</label>
+        <input type="text" id="location" readonly required>
+        <button type="button" id="pickLocationBtn"><i class="fa-solid fa-map"></i> Pick Location</button>
+      </div>
+      <div id="mapModal" class="map-modal">
+        <div id="map" class="map-area"></div>
+        <button id="confirmLocationBtn" type="button">Confirm</button>
+        <button id="closeMapBtn" type="button">Cancel</button>
+      </div>
+      <button type="submit" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Submit</button>
+    </form>
+    <button class="btn-logout" id="logoutBtn">Logout</button>
+  </div>
+
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- ✅ Only load the external JS -->
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
