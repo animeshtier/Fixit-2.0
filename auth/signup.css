@@ -1,0 +1,103 @@
+/* ================================
+   FixIt | Signup Page Styles
+   ================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body.signup-body {
+  font-family: 'Roboto', sans-serif;
+  background: radial-gradient(circle at top left,#1e3a8a,transparent 60%),
+              radial-gradient(circle at bottom right,#1d4ed8,transparent 60%), #f8fafc;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-box {
+  background: #fff;
+  padding: 40px 35px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1d4ed8;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+h1 i { color: #1e3a8a; }
+
+h2 {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.input-group { margin-bottom: 20px; text-align: left; }
+.input-group label {
+  display: flex; gap: 6px;
+  font-size: 14px; font-weight: 500;
+  margin-bottom: 6px; color: #333;
+}
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+.input-group input:focus {
+  border-color: #1d4ed8;
+  box-shadow: 0 0 0 3px rgba(29,78,216,0.15);
+  outline: none;
+}
+
+.btn-signup {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg,#1d4ed8,#1e40af);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-signup:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(29,78,216,0.3);
+}
+
+.btn-secondary {
+  display: block;
+  margin-top: 10px;
+  padding: 12px;
+  background: #f3f4f6;
+  color: #374151;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.btn-secondary:hover { background: #e5e7eb; transform: translateY(-2px); }
+
+.switch-link { margin-top: 15px; font-size: 14px; }
+.switch-link a { color: #1d4ed8; font-weight: 600; text-decoration: none; }
+.switch-link a:hover { text-decoration: underline; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
