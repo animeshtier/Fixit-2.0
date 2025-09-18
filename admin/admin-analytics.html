@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FixIt | Admin Analytics</title>
+  <link rel="stylesheet" href="admin-analytics.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>FixIt</h2>
+    <nav>
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="admin-analytics.html" class="active">Analytics</a>
+      <a href="admin-settings.html">Settings</a>
+    </nav>
+    <button id="logoutBtn">Logout</button>
+  </aside>
+
+  <!-- Main -->
+  <main class="main-content">
+    <h2>Analytics</h2>
+
+    <!-- Date Filter -->
+    <div class="filter-bar">
+      <label for="dateFilter">Filter:</label>
+      <select id="dateFilter">
+        <option value="all">All Time</option>
+        <option value="7">Last 7 Days</option>
+        <option value="30">Last 30 Days</option>
+      </select>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts">
+      <div class="chart-container">
+        <h3>Status Distribution</h3>
+        <canvas id="statusChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Reports by Category</h3>
+        <canvas id="categoryChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Reports Over Time</h3>
+        <canvas id="timeChart"></canvas>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="admin-analytics.js"></script>
+</body>
+</html>

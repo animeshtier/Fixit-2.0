@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FixIt | Admin Dashboard</title>
+  <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>FixIt</h2>
+    <nav>
+      <a href="admin-dashboard.html" class="active">Dashboard</a>
+      <a href="admin-dashboard.html#reports">Reports</a>
+      <a href="admin-analytics.html">Analytics</a>
+      <a href="#">Settings</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header>
+      <h1><i class="fa fa-gauge"></i> Admin Dashboard</h1>
+      <button id="logoutBtn" class="btn-logout">Logout</button>
+    </header>
+
+    <!-- Stats Cards -->
+    <section class="stats">
+      <div class="card">Total Reports <span id="totalReports">0</span></div>
+      <div class="card">Pending <span id="pendingCount">0</span></div>
+      <div class="card">In Progress <span id="progressCount">0</span></div>
+      <div class="card">Resolved <span id="resolvedCount">0</span></div>
+    </section>
+
+    <!-- Reports Table -->
+    <section id="reports">
+      <h2>Reports</h2>
+      <div class="filters">
+        <input type="text" placeholder="Search by Report ID or Description">
+        <select>
+          <option>Filter by Status</option>
+          <option>Pending</option>
+          <option>In Progress</option>
+          <option>Resolved</option>
+        </select>
+      </div>
+
+      <table id="reportTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Photo</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Reports will load here -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script type="module" src="admin-dashboard.js"></script>
+</body>
+</html>
